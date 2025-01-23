@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{feynmp-auto}
+\usepackage{caption}
+\usepackage{cite}
+
+\begin{document}
+
+\title{Feynman Graphs for Electron-Positron Annihilation}
+\author{}
+\date{}
+\maketitle
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \begin{fmffile}{annihilation1}
+            \begin{fmfgraph*}(100,100)
+                \fmfleft{e1,e2}
+                \fmfright{p1,p2}
+                \fmf{fermion}{e1,v1,e2}
+                \fmf{photon,label=$\gamma$}{v1,v2}
+                \fmf{fermion}{p1,v2,p2}
+                \fmflabel{$e^-$}{e1}
+                \fmflabel{$e^+$}{e2}
+                \fmflabel{$\mu^+$}{p1}
+                \fmflabel{$\mu^-$}{p2}
+            \end{fmfgraph*}
+        \end{fmffile}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \begin{fmffile}{annihilation2}
+            \begin{fmfgraph*}(100,100)
+                \fmfleft{e1,e2}
+                \fmfright{p1,p2}
+                \fmf{fermion}{e1,v1,e2}
+                \fmf{gluon,label=$Z^0$}{v1,v2}
+                \fmf{fermion}{p1,v2,p2}
+                \fmflabel{$e^-$}{e1}
+                \fmflabel{$e^+$}{e2}
+                \fmflabel{$\mu^+$}{p1}
+                \fmflabel{$\mu^-$}{p2}
+            \end{fmfgraph*}
+        \end{fmffile}
+    \end{minipage}
+    \caption{Feynman graphs for the lowest order contributions to electron-positron annihilation \cite{martin1992}.}
+    \label{fig:feynman}
+\end{figure}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+
