@@ -17,6 +17,7 @@ file = ROOT.TFile("data.root", "READ")
 tree = file.Get("tree")
 hist = ROOT.TH1F("hist", "Normally Distributed Random Numbers", 100, -4, 4)
 
+hist.SetFillColor(ROOT.kYellow)
 tree.Draw("random_number>>hist")
 
 canvas = ROOT.TCanvas()
