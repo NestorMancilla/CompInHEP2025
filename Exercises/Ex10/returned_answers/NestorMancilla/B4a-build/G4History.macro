@@ -1,0 +1,76 @@
+/run/verbose 2
+/run/initialize
+/control/execute vis.mac
+/vis/open
+/vis/sceneHandler/create TSG_OFFSCREEN
+/vis/viewer/create ! ! 600x600-0+0
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+/vis/drawVolume
+/vis/scene/create
+/vis/scene/add/volume world -1 -1 none m 0 0 0 0 0 0
+/vis/sceneHandler/attach
+/vis/viewer/set/viewpointThetaPhi 90. 180.
+/vis/scene/add/trajectories smooth
+/tracking/storeTrajectory 2
+/vis/scene/notifyHandlers
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/scene/notifyHandlers scene-0
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 1
+/vis/scene/notifyHandlers scene-0
+/vis/scene/endOfEventAction accumulate
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+/control/execute run1.mac
+/run/initialize
+/vis/scene/notifyHandlers scene-0
+/gun/particle mu+
+/gun/energy 300 MeV
+/run/beamOn 1
+/vis/scene/notifyHandlers scene-0
+/analysis/h1/getVector
+/analysis/h2/getVector
+/run/printProgress 5
+/run/beamOn 10
+/analysis/h1/getVector
+/analysis/h2/getVector
+/process/inactivate msc
+/run/physicsModified
+/run/beamOn 10
+/analysis/h1/getVector
+/analysis/h2/getVector
+/globalField/setValue 2 0 0 tesla
+/run/beamOn 10
+/analysis/h1/getVector
+/analysis/h2/getVector
+/process/activate msc
+/run/physicsModified
+/run/beamOn 10
+/analysis/h1/getVector
+/analysis/h2/getVector
+/tracking/verbose 2
+/run/beamOn 1
+/analysis/h1/getVector
+/analysis/h2/getVector
+/vis/plot
+/vis/reviewPlots
+/analysis/h1/getVector
+/vis/plot h1 0
+/vis/enable
+/vis/viewer/resetCameraParameters
+/vis/scene/create
+/vis/scene/endOfEventAction accumulate 0
+/vis/plotter/create plotter-0
+/vis/scene/add/plotter plotter-0
+/vis/plotter/add/h1 0 plotter-0
+/vis/sceneHandler/attach
+/vis/plot h1 1
+/vis/enable
+/vis/viewer/resetCameraParameters
+/vis/scene/create
+/vis/scene/endOfEventAction accumulate 0
+/vis/plotter/create plotter-1
+/vis/scene/add/plotter plotter-1
+/vis/plotter/add/h1 1 plotter-1
+/vis/sceneHandler/attach
